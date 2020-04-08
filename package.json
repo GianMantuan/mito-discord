@@ -1,0 +1,14 @@
+{
+  "name": "bot_bolsonaro",
+  "version": "1.0.0",
+  "description": "Eu sou robô do Bolsonaro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bonoro",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.1.1"
+  }
+}
