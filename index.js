@@ -1,7 +1,11 @@
 const Discord = require("discord.js");
-const Bot = new Discord.Client();
+const dotenv = require("dotenv");
 
-Bot.login("Njk3NTIzODM5MzkwOTc0MTA1.Xo4imQ.kTLbtXTPtP6YvH0bJxEPQC_wy60");
+const Bot = new Discord.Client();
+dotenv.config();
+
+Bot.login(process.env.BOT_KEY);
+
 Bot.once("ready", () => {
   console.log(`Bot online: ${Bot.user.tag}`);
 });
