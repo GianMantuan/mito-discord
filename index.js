@@ -7,7 +7,9 @@ dotenv.config();
 Bot.login(process.env.BOT_KEY);
 
 Bot.once("ready", () => {
-  console.log(`Bot online: ${Bot.user.tag}`);
+  Bot.user.setActivity("Admirável Gado Novo -Zé Ramalho", {
+    type: "LISTENING",
+  });
 });
 
 const checkNome = [
