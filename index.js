@@ -23,7 +23,7 @@ const checkNome = [
 
 const checkApelido = [
   "bonoro",
-  "biroliro"
+  "biroliro",
   "biruleibe",
   
  ];
