@@ -13,29 +13,19 @@ Bot.once("ready", () => {
 });
 
 //Bot Word List
-const checkNome = [
-  "bolsonaro",
-  "mito",
-  "messias",
-  "presida",
-  "17",
-];
+const checkNome = ["bolsonaro", "mito", "messias", "presida", "17"];
 
-const checkApelido = [
-  "bonoro",
-  "biroliro",
-  "biruleibe",
-  
- ];
+const checkApelido = ["bonoro", "biroliro", "biruleibe"];
 
-const checkJornalista = [ "?", ];
-                         
+const checkJornalista = ["?"];
+
 const checkMiliciano = ["queiroz", "michele", "89 mil"];
 
 const checkCorona = ["covid-19", "corona", "coronga", "coronavirus", "covid"];
 
-const checkComunista = ["nós", "nosso", "estado", "dar",];
+const checkCloroquina = ["cloroquina", "hidroxicloroquina"];
 
+const checkComunista = ["nós", "nosso", "estado", "dar"];
 
 //Bot Replies
 const replyNome = [
@@ -68,7 +58,7 @@ const replyJornalista = [
   "Virou Jornalista agora?",
   "É, parece que alguém tá querendo matéria pro Jornal Nacional...",
   "ACABÔ, PORRA!",
-  ];
+];
 
 const replyMiliciano = ["Vontade de encher sua boca de porrada!"];
 
@@ -86,58 +76,61 @@ Bot.on("message", (msg) => {
     }
 
     return;
-  });// End CheckNome
-  
+  }); // End CheckNome
+
   checkApelido.some((check) => {
     if (msg.content.toLowerCase().includes(check)) {
       msg.reply(replyApelido[Math.floor(Math.random() * replyApelido.length)]);
     }
 
     return;
-  });// End checkComunista
-  
+  }); // End checkComunista
+
   checkCorona.some((check) => {
     if (msg.content.toLowerCase().includes(check)) {
       msg.reply(replyCorona[Math.floor(Math.random() * replyCorona.length)]);
     }
 
     return;
-  });// End checkCorona
-  
+  }); // End checkCorona
+
   checkJornalista.some((check) => {
     if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(replyJornalista[Math.floor(Math.random() * replyJornalista.length)]);
+      msg.reply(
+        replyJornalista[Math.floor(Math.random() * replyJornalista.length)]
+      );
     }
 
     return;
-  });// End checkJornalista
-  
+  }); // End checkJornalista
+
   checkComunista.some((check) => {
     if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(replyComunista[Math.floor(Math.random() * replyComunista.length)]);
+      msg.reply(
+        replyComunista[Math.floor(Math.random() * replyComunista.length)]
+      );
     }
 
     return;
-  });// End checkComunista
-  
+  }); // End checkComunista
+
   checkCloroquina.some((check) => {
     if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(replyCloroquina[Math.floor(Math.random() * replyCloroquina.length)]);
+      msg.reply(
+        replyCloroquina[Math.floor(Math.random() * replyCloroquina.length)]
+      );
     }
 
     return;
-  });// End checkComunista
-  
+  }); // End checkComunista
+
   checkMiliciano.some((check) => {
     if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(replyMiliciano[Math.floor(Math.random() * replyMiliciano.length)]);
+      msg.reply(
+        replyMiliciano[Math.floor(Math.random() * replyMiliciano.length)]
+      );
     }
 
     return;
-  });// End checkComunista
-  
-  
-  
-  
+  }); // End checkComunista
 }); // End Bot.on
-
