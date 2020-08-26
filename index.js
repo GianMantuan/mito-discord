@@ -65,7 +65,7 @@ const replyCloroquina = [
 
 const replyJornalista = [
   "Vontade de encher sua boca de porrada!",
-  "Virou Jornalista agora?"
+  "Virou Jornalista agora?",
   "É, parece que alguém tá querendo matéria pro Jornal Nacional...",
   "ACABÔ, PORRA!",
   ];
