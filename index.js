@@ -30,7 +30,7 @@ const checkComunista = ["nós", "nosso", "estado", "dar"];
 //Bot Replies
 const replyNome = [
   "Chamou?",
-  "Tem que ver isso ai, talkey?",
+  "Tem que ver isso ai, talkey? :flag_br: :sunglasses: :point_right: :point_right:",
   "No tocante disso ai...",
   "Vou ver com o Paulo Guedes e te aviso",
   "Continua que eu chamo a Flordelis pra você, talkey?",
@@ -38,8 +38,8 @@ const replyNome = [
 
 const replyCorona = [
   "Isso ai é so uma gripezinha...",
-  "Robo não pega doença",
-  "Esse virus chinês...",
+  "Robo :robot: não pega doença",
+  "Esse virus chinês... :flag_cn: :japanese_ogre:",
   "Com meu histórico de atleta...",
   "Esse vírus é igual uma chuva, vai molhar 70% de vocês. Isso ninguém contesta. Toda a nação vai ficar livre da pandemia quando 70% for infectada e conseguir os anticorpos...",
   "E daí?",
@@ -47,7 +47,7 @@ const replyCorona = [
 ];
 
 const replyCloroquina = [
-  "Ih... Vou ter que ligar pro Trump pra pedir mais Cloroquina...",
+  "Ih... Vou ter que ligar pro Trump :flag_us: pra pedir mais Cloroquina... :pill:",
   "CLOROQUINA NÃO TEM EFEITO COLATERAL, ESQUERDALHA!",
   "Opa! Se quiser usar contra Emas, garante não ser bicado, talkey?",
   "'Ah, não tem comprovação científica que seja eficaz.' Mas também não tem comprovação científica que não tem comprovação eficaz. Nem que não tem, nem que tem",
