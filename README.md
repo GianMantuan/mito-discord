@@ -2,7 +2,7 @@
 Sempre escutando sua música favorita "Admirável Mundo Novo", o seguidor fiél de nosso presida, o Robô do Bolsonaro, ou Bot, conta com um repertório limitado de respostas para as perguntas mais frequentes dos esquerdistas.
 
 # Contribuição
-Caso acredite que os seguidores Robôs do nosso presida aprenderam palavras novas, voce pode acessar a pasta `/directories`.
+Caso acredite que os seguidores Robôs do nosso presida aprenderam palavras novas, voce pode acessar a pasta `/dictionaries`.
 
 ### Dicionários de Check/Reply
 - Tanto o `Word_Dictionary` quanto o `Reply_Dictionary` devem ter o mesmo indice:
@@ -10,7 +10,6 @@ Caso acredite que os seguidores Robôs do nosso presida aprenderam palavras nova
 Word_Dictionary.json
 ```json
 {
-...
 "exemplo": ["array", "de", "check"]
 }
 ```
@@ -18,7 +17,6 @@ Word_Dictionary.json
 Reply_Dictionary.json
 ```json
 {
-...
 "exemplo": ["array", "de", "reply"]
 }
 ```
