@@ -1,6 +1,12 @@
 const Discord = require("discord.js");
 const dotenv = require("dotenv");
 
+// Dictionaries requires
+const wordDictionary = require("./dictionaries/Words_Dictionary.json");
+const replyDictionary = require("./dictionaries/Reply_Dictionary.json");
+const brabaDictionary = require("./dictionaries/Braba_Dictionary.json");
+
+// Bot Configuration:
 const Bot = new Discord.Client();
 dotenv.config();
 
@@ -12,125 +18,34 @@ Bot.once("ready", () => {
   });
 });
 
-//Bot Word List
-const checkNome = ["bolsonaro", "mito", "messias", "presida", "17"];
-
-const checkApelido = ["bonoro", "biroliro", "biruleibe"];
-
-const checkJornalista = ["?"];
-
-const checkMiliciano = ["queiroz", "michele", "89 mil"];
-
-const checkCorona = ["covid-19", "corona", "coronga", "coronavirus", "covid"];
-
-const checkCloroquina = ["cloroquina", "hidroxicloroquina"];
-
-const checkComunista = ["nós", "nosso", "estado", "dar"];
-
-//Bot Replies
-const replyNome = [
-  "Chamou?",
-  "Tem que ver isso ai, talkey? :flag_br: :sunglasses: :point_right: :point_right:",
-  "No tocante disso ai...",
-  "Vou ver com o Paulo Guedes e te aviso",
-  "Continua que eu chamo a Flordelis pra você, talkey?",
-];
-
-const replyCorona = [
-  "Isso ai é so uma gripezinha...",
-  "Robo :robot: não pega doença",
-  "Esse virus chinês... :flag_cn: :japanese_ogre:",
-  "Com meu histórico de atleta...",
-  "Esse vírus é igual uma chuva, vai molhar 70% de vocês. Isso ninguém contesta. Toda a nação vai ficar livre da pandemia quando 70% for infectada e conseguir os anticorpos...",
-  "E daí?",
-  "Eu não sou COVEIRO!",
-];
-
-const replyCloroquina = [
-  "Ih... Vou ter que ligar pro Trump :flag_us: pra pedir mais Cloroquina... :pill:",
-  "CLOROQUINA NÃO TEM EFEITO COLATERAL, ESQUERDALHA!",
-  "Opa! Se quiser usar contra Emas, garante não ser bicado, talkey?",
-  "'Ah, não tem comprovação científica que seja eficaz.' Mas também não tem comprovação científica que não tem comprovação eficaz. Nem que não tem, nem que tem",
-];
-
-const replyJornalista = [
-  "Vontade de encher sua boca de porrada!",
-  "Virou Jornalista agora?",
-  "É, parece que alguém tá querendo matéria pro Jornal Nacional...",
-  "ACABÔ, PORRA!",
-];
-
-const replyMiliciano = ["Vontade de encher sua boca de porrada!"];
-
-const replyComunista = ["Alá o comunistinha bostalhando... VAI PRA CUBA!!"];
-
-const replyApelido = ["Vai dar apelido pro cu da sua mãe!"];
-
 // Bot Checks:
 Bot.on("message", (msg) => {
   if (msg.author.bot) return;
 
-  checkNome.some((check) => {
-    if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(replyNome[Math.floor(Math.random() * replyNome.length)]);
-    }
+  const content = msg.content.toLowerCase();
 
-    return;
-  }); // End CheckNome
-
-  checkApelido.some((check) => {
-    if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(replyApelido[Math.floor(Math.random() * replyApelido.length)]);
-    }
-
-    return;
-  }); // End checkComunista
-
-  checkCorona.some((check) => {
-    if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(replyCorona[Math.floor(Math.random() * replyCorona.length)]);
-    }
-
-    return;
-  }); // End checkCorona
-
-  checkJornalista.some((check) => {
-    if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(
-        replyJornalista[Math.floor(Math.random() * replyJornalista.length)]
+  switch (content) {
+    case "lansa a braba bolsonaro":
+      msg.channel.send(
+        brabaDictionary[Math.floor(Math.random() * brabaDictionary.length)]
       );
-    }
-
-    return;
-  }); // End checkJornalista
-
-  checkComunista.some((check) => {
-    if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(
-        replyComunista[Math.floor(Math.random() * replyComunista.length)]
+      break;
+    case "!help":
+      msg.channel.send(
+        "\n [lansa a braba bolsonaro]: Pede uma braba para o bolsonaro \n [!help]: Opções de ajuda para o bot \n Qualquer outro texto no dicionário o bot retornará uma mensagem \n"
       );
-    }
+    default:
+      for (const dict in wordDictionary) {
+        if (wordDictionary.hasOwnProperty(dict)) {
+          word = wordDictionary[`${dict}`];
 
-    return;
-  }); // End checkComunista
-
-  checkCloroquina.some((check) => {
-    if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(
-        replyCloroquina[Math.floor(Math.random() * replyCloroquina.length)]
-      );
-    }
-
-    return;
-  }); // End checkComunista
-
-  checkMiliciano.some((check) => {
-    if (msg.content.toLowerCase().includes(check)) {
-      msg.reply(
-        replyMiliciano[Math.floor(Math.random() * replyMiliciano.length)]
-      );
-    }
-
-    return;
-  }); // End checkComunista
+          word.some((check) => {
+            reply = replyDictionary[`${dict}`];
+            if (content.includes(check))
+              msg.reply(reply[Math.floor(Math.random() * reply.length)]);
+          });
+        }
+      }
+      break;
+  }
 }); // End Bot.on
