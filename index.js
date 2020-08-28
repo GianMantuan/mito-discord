@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const wordDictionary = require("./dictionaries/Words_Dictionary.json");
 const replyDictionary = require("./dictionaries/Reply_Dictionary.json");
 const brabaDictionary = require("./dictionaries/Braba_Dictionary.json");
+const badDictionary = require("././dictionaries/Bad_words.json");
 
 // Bot Configuration:
 const Bot = new Discord.Client();
