@@ -20,10 +20,13 @@ Bot.once("ready", () => {
 
 // Bot Checks:
 Bot.on("message", (msg) => {
+  const content = msg.content.toLowerCase();
+  const ytUri = /(?:http(?:s)?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'<> #]+)/gim;
+
+  // Check if the author of the message is the bot itself
   if (msg.author.bot) return;
 
-  const content = msg.content.toLowerCase();
-
+  // Switch Message Content:
   switch (content) {
     case "lansa a braba bolsonaro":
       msg.channel.send(
@@ -34,18 +37,25 @@ Bot.on("message", (msg) => {
       msg.channel.send(
         "\n [lansa a braba bolsonaro]: Pede uma braba para o bolsonaro \n [!help]: Opções de ajuda para o bot \n Qualquer outro texto no dicionário o bot retornará uma mensagem \n"
       );
-    default:
-      for (const dict in wordDictionary) {
-        if (wordDictionary.hasOwnProperty(dict)) {
-          word = wordDictionary[`${dict}`];
-
-          word.some((check) => {
-            reply = replyDictionary[`${dict}`];
-            if (content.includes(check))
-              msg.reply(reply[Math.floor(Math.random() * reply.length)]);
-          });
-        }
-      }
       break;
-  }
+    default:
+      // Split the message:
+      content.split(" ").some((sContent) => {
+        // Check if youtube link
+        if (sContent.match(ytUri)) return;
+
+        for (const dict in wordDictionary) {
+          if (wordDictionary.hasOwnProperty(dict)) {
+            word = wordDictionary[`${dict}`];
+
+            word.some((check) => {
+              reply = replyDictionary[`${dict}`];
+              if (sContent.includes(check))
+                msg.reply(reply[Math.floor(Math.random() * reply.length)]);
+            });
+          }
+        }
+      }); // End Some Function
+      break;
+  } // End Switch Message Content
 }); // End Bot.on
