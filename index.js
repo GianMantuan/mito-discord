@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const wordDictionary = require("./dictionaries/Words_Dictionary.json");
 const replyDictionary = require("./dictionaries/Reply_Dictionary.json");
 const brabaDictionary = require("./dictionaries/Braba_Dictionary.json");
+const badDictionary = require("./dictionaries/Bad_Words.json");
 
 // Bot Configuration:
 const Bot = new Discord.Client();
@@ -20,7 +21,17 @@ Bot.once("ready", () => {
 
 // Bot Checks:
 Bot.on("message", (msg) => {
-  if (msg.author.bot) return;
+
+   //Return true if word is literal or have any sub-string in himself
+   let n_word = content.split(" ").some((w) => {
+    return (
+          // Strip the string and compare if the word is equal other 
+            badDictionary.literal.find((k) => k === w) ||
+          // Check if have word inside the string 
+            badDictionary.like.find((k) => k.includes(k)));
+  });
+
+  if (msg.author.bot && !n_word) return;
 
   const content = msg.content.toLowerCase();
 
